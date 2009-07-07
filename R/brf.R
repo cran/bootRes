@@ -1,9 +1,11 @@
 brf <-
-function(g, p) {
-	require(utils)
+function(g, p, sb) {
 	n <- length(g)
 	param.matrix <- matrix(NA, nrow = dim(p)[2], ncol = 1000)
-	pb <- txtProgressBar(min = 1,  max = 1000, style = 3)
+	if (sb) { # initialize status bar (if TRUE)
+		require(utils)
+		pb <- txtProgressBar(min = 1,  max = 1000, style = 3)
+	} 
 	for (i in 1:1000) {
 		boot.sample <- sample(1:n, n, replace = TRUE)
 		boot.g <- g[boot.sample]
@@ -22,7 +24,8 @@ function(g, p) {
 		k <- c(k, zeros) # (q*1)
 		b <- eigenvectors %*% k # response coefficients (q*1)
 		param.matrix[, i] <- b
-		setTxtProgressBar(pb, i)
+		if (sb) # update status bar (if TRUE)
+			setTxtProgressBar(pb, i)
 	}
 	brf.coef <- apply(param.matrix, 1, median)
 	ci.lower <- apply(param.matrix, 1, function(x) { sort(x)[25] })
@@ -30,7 +33,8 @@ function(g, p) {
 	is.sig <- ifelse(abs(brf.coef) > (ci.upper - ci.lower)/2, TRUE, FALSE)
 	out <- cbind(coef = brf.coef, significant = is.sig, ci.lower = ci.lower, ci.upper = ci.upper)
 	rownames(out) <- colnames(p)
-	close(pb)
+	if (sb) # close status bar (if TRUE)
+		close(pb)
 	as.data.frame(out)
 }
 
