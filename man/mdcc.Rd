@@ -20,7 +20,7 @@ intervals.
 \usage{
 mdcc(chrono, clim, method = "response", start = -6, end = 9, timespan =
 NULL, vnames = NULL, sb = TRUE, win.size = 25, win.offset =
-1, startlast = TRUE, boot = FALSE)
+1, startlast = TRUE, boot = FALSE, ci = 0.05)
 }
 \arguments{
   \item{chrono}{
@@ -61,6 +61,9 @@ rear end (youngest part of the series) or not.
 logical flag indicating whether bootstrap resampling is to be
 performed.
 }
+\item{ci}{
+numerical value to set the test level for significance test (values
+0.01, 0.05 and 0.1 are allowed); the confidence intervals are adapted accordingly.}
 }
 \details{
 

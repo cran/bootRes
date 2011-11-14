@@ -15,7 +15,7 @@ This function calculates response and correlation functions from tree-ring chron
 }
 \usage{
 dcc(chrono, clim, method = "response", start = -6, end = 9, timespan =
-NULL, vnames = NULL, sb = TRUE, boot = TRUE)
+NULL, vnames = NULL, sb = TRUE, boot = TRUE, ci = 0.05)
 }
 \arguments{
   \item{chrono}{
@@ -46,6 +46,9 @@ logical flag indicating whether textual status bar should be suppressed. Suppres
 logical flag indicating whether bootstrap resampling is to be
 performed. If set to FALSE, no significance estimates and confidence intervals are provided.
 }
+\item{ci}{
+numerical value to set the test level for significance test (values
+0.01, 0.05 and 0.1 are allowed); the confidence intervals are adapted accordingly.}
 }
 \details{
 
