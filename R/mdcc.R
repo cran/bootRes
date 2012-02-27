@@ -1,11 +1,8 @@
-mdcc <- function(chrono, clim, method = "response", start = -6, end =
+mdcc <- function(chrono, clim, method = "response", start = 4, end =
                  9, timespan = NULL, vnames = NULL, sb = TRUE,
                  win.size = 25, win.offset = 1, startlast = TRUE,
                  boot = FALSE, ci = 0.05) {
-	# TODO: status bar should correspond to whole window movement, not to single computations
-        # startlast: gibt an, ob vom Ende (neueste Daten), oder vom
-        # Anfang (älteste Daten) berechnet wird
-  
+
   month.ids <- c(-1:-12, 1:12)
   errormsg1 <-
     "start and end have to define an interval in [-1, -2, ..., -12, 1, 2, ..., 12]."
@@ -18,6 +15,19 @@ mdcc <- function(chrono, clim, method = "response", start = -6, end =
   clim <- climdispatch(clim)                    # properly formatted
                                         # climate data gets returned
                                         # here
+
+  if (start*end > 0) {
+    no.params <- (dim(clim)[2] -2)*length(start:end)
+  } else {
+    no.params <- (dim(clim)[2] -2)*length(start:end)-1 # 0 is not counted
+  }
+  ## raise error, when window size is smaller than number of params
+  if (no.params > win.size) {
+    win.size.msg <-
+      paste("Window size is smaller than number of parameters! Consider adapting win.size to a minimum of ",
+            no.params, ".", sep = "")
+    stop(win.size.msg)
+  }
   chrono.years <- as.numeric(row.names(chrono)) # get timespan of
                                         # chrono
   clim.years <- sort(unique(clim[, 1])) # get timespan of climate data
@@ -55,6 +65,12 @@ mdcc <- function(chrono, clim, method = "response", start = -6, end =
       }
     }
   }
+  if (length(start.year:end.year) <= win.size) {
+    errormsg5 <-
+      paste("timespan is shorter than win.size. Consider adapting timespan to at least ",
+            win.size, ".", sep = "")
+    stop(errormsg5)
+  }
   if (start < 0 && is.na(match((start.year - 1), clim.years))) { # check if a previous year is available in climatic data; otherwise set start.year + 1
     offset <- 1
   } else {
@@ -77,6 +93,13 @@ mdcc <- function(chrono, clim, method = "response", start = -6, end =
   years <- as.numeric(rownames(p))
   n.years <- length(years)
   win.num <- (length(chrono.trunc) - win.size) %/% win.offset
+  if (win.num < 2) {
+    errmsg6 <-
+      paste("Less than 2 windows. Consider a timespan greater than ",
+            n.years, " or a win.size smaller than ", win.size, ".",
+            sep = "")
+    stop(errmsg6)
+  }
   win.years.string <- character(win.num)
   windows <- 1:win.num
   ## result matrix
