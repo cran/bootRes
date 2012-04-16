@@ -1,6 +1,7 @@
 brf <- function(g, p, sb, vnames, ci = 0.05) {
   n <- length(g)
-  param.matrix <- matrix(NA, nrow = dim(p)[2], ncol = 1000)
+  m <- dim(p)[2]
+  param.matrix <- matrix(NA, nrow = m, ncol = 1000)
   if (sb) { # initialize status bar (if TRUE)
     pb <- txtProgressBar(min = 1,  max = 1000, style = 3)
   } 
@@ -42,7 +43,21 @@ brf <- function(g, p, sb, vnames, ci = 0.05) {
       }
     }
   }
-  is.sig <- ifelse(abs(brf.coef) > (ci.upper - ci.lower)/2, TRUE, FALSE)
+
+  ## Significance test
+  is.sig <- logical(m)
+  for (i in 1:m) {
+    if (sign(ci.upper[i]) != sign(ci.lower[i])) {
+      is.sig[i] <- FALSE
+    } else {
+      if (abs(brf.coef[i]) > abs((abs(ci.upper[i]) - abs(ci.lower[i]))/2)) {
+        is.sig[i] <- TRUE
+      } else {
+        is.sig[i] <- FALSE
+      }
+    }
+  }
+    
   out <- data.frame(coef = brf.coef, significant = is.sig, ci.lower = ci.lower, ci.upper = ci.upper)
   rownames(out) <- colnames(p)
   if (sb) # close status bar (if TRUE)

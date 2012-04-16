@@ -1,8 +1,8 @@
-6a68c88da6dd9c4bc09ae85b1b19a2f1 *Changelog
-ea54c2d2650a39e3368104e18f83f241 *DESCRIPTION
+e64177dfaeb9af225cf1dcb94bb92c6f *Changelog
+08c2ea15a78db580ed960574ec408cb9 *DESCRIPTION
 fecbd1d5dfcce34f584bc61a9bfcb986 *NAMESPACE
-1cd90fc3a362b089ebcd3b112e7d0871 *R/bcf.R
-3f9333d7643009e98e53dacf362f47ce *R/brf.R
+63e45325c957ed9c7a09a08f7f9872e5 *R/bcf.R
+f16243e018b483683568d8ef565fa834 *R/brf.R
 a581dfa0f95a40dcd8a235c0058f3fc9 *R/climdispatch.R
 ee248432f4ea7e9ae0869d0d49ac9226 *R/dcc.R
 6a97f24725cbdbadb64f43d4af31d4f3 *R/dcplot.R
@@ -11,7 +11,7 @@ ee248432f4ea7e9ae0869d0d49ac9226 *R/dcc.R
 5fabcb3e7de225c0d25410a36b52063c *R/mdcplot.R
 4ec60d6233ce1f8ccdd2554eb42d86ae *R/nbcf.R
 1bc26e25a4bb4bd78b22bf1b07da9748 *R/nbrf.R
-c74ff50634c329cbf62d20eb42f78d78 *R/pmat.R
+b36cc04dcf43f9cb932f128ab525582f *R/pmat.R
 6bcad203d741eec7395d2f6bc52f6f8d *data/muc.clim.RData
 dbdd76055b0c1a53f79e2b82782ed04f *data/muc.fake.RData
 d84844509c8b7831f0a91ca4f33970da *data/muc.spruce.rda
