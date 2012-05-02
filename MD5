@@ -1,5 +1,5 @@
-e64177dfaeb9af225cf1dcb94bb92c6f *Changelog
-08c2ea15a78db580ed960574ec408cb9 *DESCRIPTION
+69c81ad073f4e8dfc8e1d10a0e00471d *Changelog
+46c2ba06b32e21c657d852fc54e6a7a2 *DESCRIPTION
 fecbd1d5dfcce34f584bc61a9bfcb986 *NAMESPACE
 63e45325c957ed9c7a09a08f7f9872e5 *R/bcf.R
 f16243e018b483683568d8ef565fa834 *R/brf.R
@@ -7,8 +7,8 @@ a581dfa0f95a40dcd8a235c0058f3fc9 *R/climdispatch.R
 ee248432f4ea7e9ae0869d0d49ac9226 *R/dcc.R
 6a97f24725cbdbadb64f43d4af31d4f3 *R/dcplot.R
 0a506dcd429b1881a9227cc25e400e13 *R/dendroclim.R
-6e405e5ef09d01e692fe59883801676c *R/mdcc.R
-5fabcb3e7de225c0d25410a36b52063c *R/mdcplot.R
+2f111025bb238feb7c1647b155aa6f30 *R/mdcc.R
+0bb69b1d0fb149b949b5928255f143eb *R/mdcplot.R
 4ec60d6233ce1f8ccdd2554eb42d86ae *R/nbcf.R
 1bc26e25a4bb4bd78b22bf1b07da9748 *R/nbrf.R
 b36cc04dcf43f9cb932f128ab525582f *R/pmat.R
@@ -22,8 +22,8 @@ ab6251ffc5158fd9caf0b5e4697c7d63 *man/bootRes-internal.rd
 fd62d8960dc064031b2f809ca71dc6aa *man/bootRes-package.Rd
 46cefdfe17bcff84f17dd386c0435a49 *man/dcc.Rd
 821ac44ee628ebc2d010c2d004c8c5ce *man/dcplot.Rd
-2e103b835ec6bc364f977e58a0c2dfcb *man/mdcc.Rd
-d49ab051672bf780a9022e4940145780 *man/mdcplot.Rd
+9428000d97bdf78f0b863b83a568b007 *man/mdcc.Rd
+1a87830423b0e6f4f1bed195f6336a00 *man/mdcplot.Rd
 55813f53928a79589f8331a46f080054 *man/muc.clim.Rd
 00687d069f30061d20fe6dba7693da3f *man/muc.fake.Rd
 4f818bd356c0b5098c7374903b310e5a *man/muc.spruce.Rd
